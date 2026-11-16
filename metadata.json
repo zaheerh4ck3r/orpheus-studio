@@ -1,0 +1,6 @@
+{
+  "name": "Orpheus Studios",
+  "description": "An independent creative studio working at the intersection of filmmaking, brand strategy, creative direction, and design. Based in Pakistan, working internationally.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
