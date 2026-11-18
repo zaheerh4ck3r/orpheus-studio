@@ -6,20 +6,33 @@
     <title>Orpheus Studios — Make Things That Move People</title>
     <meta
       name="description"
-      content="Orpheus Studios is an independent creative studio combining brand strategy, creative direction, filmmaking, and design. Based at NSTP, NUST, Islamabad, Pakistan, working internationally."
+      content="Shape stories, brand identities, and films with Orpheus Studios—an independent creative studio at NSTP, Islamabad working globally."
+    />
+    <meta
+      name="keywords"
+      content="Orpheus Studios, creative studio Islamabad, brand strategy, creative direction, film production Pakistan, brand identity design"
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Orpheus Studios" />
     <meta property="og:title" content="Orpheus Studios — Make Things That Move People" />
     <meta
       property="og:description"
-      content="We shape stories, build identities and create films that stay with you. Independent creative studio at NSTP, NUST, Islamabad, working internationally."
+      content="Shape stories, brand identities, and films with Orpheus Studios—an independent creative studio at NSTP, Islamabad working globally."
+    />
+    <meta property="og:url" content="/" />
+    <meta
+      property="og:image"
+      content="/assets/aistudio/Gemini_Generated_Image_mbt0ngmbt0ngmbt0_c96ad1d9.jpeg"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Orpheus Studios — Make Things That Move People" />
     <meta
       name="twitter:description"
-      content="We shape stories, build identities and create films that stay with you."
+      content="Shape stories, brand identities, and films with Orpheus Studios—an independent creative studio at NSTP, Islamabad working globally."
+    />
+    <meta
+      name="twitter:image"
+      content="/assets/aistudio/Gemini_Generated_Image_mbt0ngmbt0ngmbt0_c96ad1d9.jpeg"
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,17 +41,18 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
       rel="stylesheet"
     />
-    <script type="application/ld+json">
+    <script type="application/ld+json" id="orpheus-structured-data">
       {
         "@context": "https://schema.org",
         "@type": "CreativeWork",
-        "name": "Orpheus Studios",
-        "description": "Independent creative studio working across film production, brand strategy, creative direction, brand identity, and digital experiences.",
+        "name": "Orpheus Studios — Make Things That Move People",
+        "description": "Shape stories, brand identities, and films with Orpheus Studios—an independent creative studio at NSTP, Islamabad working globally.",
+        "image": "/assets/aistudio/Gemini_Generated_Image_mbt0ngmbt0ngmbt0_c96ad1d9.jpeg",
         "creator": {
           "@type": "Organization",
           "name": "Orpheus Studios",
           "email": "orpheusstidos@gmail.com",
-          "sameAs": ["https://www.instagram.com/orpheusstudios"],
+          "sameAs": ["https://www.instagram.com/orpheusstudioss"],
           "location": {
             "@type": "Place",
             "name": "NSTP, NUST, Islamabad, Pakistan"
@@ -46,8 +60,17 @@
         }
       }
     </script>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('orpheus-theme') === 'obsidian' ? 'obsidian' : 'parchment';
+          document.documentElement.setAttribute('data-theme', t);
+          document.documentElement.style.colorScheme = t === 'obsidian' ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-parchment text-obsidian antialiased selection:bg-vermilion selection:text-parchment">
+  <body class="bg-canvas text-ink antialiased selection:bg-vermilion selection:text-parchment">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

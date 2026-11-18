@@ -34,7 +34,7 @@ export function Hero({ onDiscoverClick, onNavigate }: HeroProps) {
   return (
     <section
       aria-labelledby="hero-headline"
-      className="bg-parchment text-obsidian border-b border-obsidian/15 overflow-x-clip"
+      className="bg-canvas text-ink border-b border-ink/15 overflow-x-clip transition-colors duration-200"
     >
       <div className="max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 pt-10 sm:pt-14 lg:pt-20 pb-14 lg:pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
@@ -46,23 +46,23 @@ export function Hero({ onDiscoverClick, onNavigate }: HeroProps) {
             className="lg:col-span-7 space-y-8"
           >
             <div className="flex items-center gap-3">
-              <StarMark className="w-3.5 h-3.5 text-vermilion shrink-0" />
-              <p className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.24em] text-obsidian/70">
+              <StarMark className="w-3.5 h-3.5 text-accent shrink-0" />
+              <p className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.24em] text-ink/70">
                 {STUDIO_CONFIG.shortLocation} · {STUDIO_CONFIG.availability}
               </p>
             </div>
 
             <h1
               id="hero-headline"
-              className="font-serif text-[2.75rem] sm:text-[4.25rem] lg:text-[4.85rem] xl:text-[5.5rem] leading-[0.97] tracking-[-0.02em] text-obsidian uppercase"
+              className="font-serif text-[2.75rem] sm:text-[4.25rem] lg:text-[4.85rem] xl:text-[5.5rem] leading-[0.97] tracking-[-0.02em] text-ink uppercase"
             >
               Make Things{' '}
               <br />
-              That <span className="text-vermilion italic font-normal">Move</span> People.
+              That <span className="text-accent italic font-normal">Move</span> People.
             </h1>
 
-            <div className="max-w-lg space-y-7 pt-2 border-t border-obsidian/15">
-              <p className="font-sans text-base sm:text-lg leading-relaxed text-obsidian/80 pt-5">
+            <div className="max-w-lg space-y-7 pt-2 border-t border-ink/15">
+              <p className="font-sans text-base sm:text-lg leading-relaxed text-ink/80 pt-5">
                 Films, brand strategy, identity and digital experiences—built for founders and
                 teams who want their work to feel unmistakable.
               </p>
@@ -74,7 +74,7 @@ export function Hero({ onDiscoverClick, onNavigate }: HeroProps) {
                     e.preventDefault();
                     onNavigate('/contact');
                   }}
-                  className="inline-flex items-center gap-2.5 bg-obsidian text-parchment px-6 py-3 text-xs font-sans font-medium uppercase tracking-[0.18em] whitespace-nowrap shrink-0 hover:bg-vermilion transition-colors duration-200"
+                  className="editorial-btn-hover inline-flex items-center gap-2.5 bg-btn text-btn-ink px-6 py-3 text-xs font-sans font-medium uppercase tracking-[0.18em] whitespace-nowrap shrink-0 hover:bg-accent hover:text-parchment"
                 >
                   <span>Start a Project</span>
                   <span aria-hidden="true">↗</span>
@@ -83,7 +83,7 @@ export function Hero({ onDiscoverClick, onNavigate }: HeroProps) {
                 <button
                   type="button"
                   onClick={onDiscoverClick}
-                  className="editorial-link font-sans text-xs uppercase tracking-[0.2em] font-medium text-obsidian/80 hover:text-vermilion py-1.5 transition-colors cursor-pointer"
+                  className="editorial-link font-sans text-xs uppercase tracking-[0.2em] font-medium text-ink/80 hover:text-accent py-1.5 transition-colors cursor-pointer"
                 >
                   <span>See What We Do</span>
                   <span aria-hidden="true">↓</span>
@@ -101,27 +101,27 @@ export function Hero({ onDiscoverClick, onNavigate }: HeroProps) {
             onPointerLeave={handlePointerLeave}
             className="lg:col-span-5"
           >
-            <div className="relative bg-parchment-deep/65 border border-obsidian/20 p-3 sm:p-4">
+            <div className="editorial-media-frame group relative bg-canvas-elevated border border-ink/20 hover:border-ink/35 p-3 sm:p-4 transition-colors duration-200">
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute top-1.5 left-1.5 w-2.5 h-2.5 border-t border-l border-obsidian/45"
+                className="pointer-events-none absolute top-1.5 left-1.5 w-2.5 h-2.5 border-t border-l border-ink/45"
               />
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute top-1.5 right-1.5 w-2.5 h-2.5 border-t border-r border-obsidian/45"
+                className="pointer-events-none absolute top-1.5 right-1.5 w-2.5 h-2.5 border-t border-r border-ink/45"
               />
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute bottom-1.5 left-1.5 w-2.5 h-2.5 border-b border-l border-obsidian/45"
+                className="pointer-events-none absolute bottom-1.5 left-1.5 w-2.5 h-2.5 border-b border-l border-ink/45"
               />
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute bottom-1.5 right-1.5 w-2.5 h-2.5 border-b border-r border-obsidian/45"
+                className="pointer-events-none absolute bottom-1.5 right-1.5 w-2.5 h-2.5 border-b border-r border-ink/45"
               />
 
               <motion.div
                 style={shouldReduceMotion ? undefined : { x: offsetX, y: offsetY }}
-                className="relative aspect-square w-full overflow-hidden border border-obsidian/12 bg-parchment"
+                className="relative aspect-square w-full overflow-hidden border border-ink/15 bg-parchment"
               >
                 {!imgError ? (
                   <img
@@ -131,16 +131,16 @@ export function Hero({ onDiscoverClick, onNavigate }: HeroProps) {
                     decoding="async"
                     referrerPolicy="no-referrer"
                     onError={() => setImgError(true)}
-                    className="w-full h-full object-cover"
+                    className="editorial-media-target w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center p-8 bg-parchment text-obsidian text-center">
-                    <LyreMark className="w-24 h-28 mb-4 text-obsidian" />
+                  <div className="editorial-media-target w-full h-full flex flex-col items-center justify-center p-8 bg-canvas text-ink text-center">
+                    <LyreMark className="w-24 h-28 mb-4 text-ink" />
                     <p className="font-serif text-xl tracking-[0.2em] uppercase">
                       Orpheus Studios
                     </p>
-                    <StarMark className="w-3.5 h-3.5 text-vermilion my-3" />
-                    <p className="font-serif italic text-sm text-obsidian/80">
+                    <StarMark className="w-3.5 h-3.5 text-accent my-3" />
+                    <p className="font-serif italic text-sm text-ink/80">
                       Make things that move people.
                     </p>
                   </div>

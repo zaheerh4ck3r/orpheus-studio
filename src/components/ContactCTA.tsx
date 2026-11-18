@@ -1,5 +1,6 @@
 import React from 'react';
 import { STUDIO_CONFIG } from '../data/studioData';
+import { Reveal } from './Reveal';
 
 interface ContactCTAProps {
   onNavigate: (path: string) => void;
@@ -14,20 +15,24 @@ export function ContactCTA({ onNavigate }: ContactCTAProps) {
       <div className="max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12 py-18 sm:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
           <div className="lg:col-span-7">
-            <p className="font-sans text-xs uppercase tracking-[0.24em] text-parchment/80 mb-5">
-              New Collaborations
-            </p>
-            <h2
-              id="contact-cta-heading"
-              className="font-serif text-4xl sm:text-5xl lg:text-[4rem] leading-[1.02] tracking-[-0.015em] uppercase text-parchment"
-            >
-              Let&apos;s Make{' '}
-              <br />
-              Something Matter.
-            </h2>
+            <Reveal delay={0} y={10}>
+              <p className="font-sans text-xs uppercase tracking-[0.24em] text-parchment/80 mb-5">
+                New Collaborations
+              </p>
+            </Reveal>
+            <Reveal variant="mask-up" delay={0.08}>
+              <h2
+                id="contact-cta-heading"
+                className="font-serif text-4xl sm:text-5xl lg:text-[4rem] leading-[1.02] tracking-[-0.015em] uppercase text-parchment"
+              >
+                Let&apos;s Make{' '}
+                <br />
+                Something Matter.
+              </h2>
+            </Reveal>
           </div>
 
-          <div className="lg:col-span-5 space-y-8">
+          <Reveal delay={0.16} className="lg:col-span-5 space-y-8">
             <p className="font-sans text-base sm:text-lg leading-relaxed text-parchment/90 max-w-md">
               Tell us what you are building or hoping to film. You will hear back directly within
               two business days.
@@ -40,7 +45,7 @@ export function ContactCTA({ onNavigate }: ContactCTAProps) {
                   e.preventDefault();
                   onNavigate('/contact');
                 }}
-                className="inline-flex items-center justify-center gap-2.5 bg-parchment text-obsidian px-6 py-3.5 text-xs font-sans font-medium uppercase tracking-[0.18em] whitespace-nowrap shrink-0 hover:bg-obsidian hover:text-parchment transition-colors duration-200"
+                className="editorial-btn-hover inline-flex items-center justify-center gap-2.5 bg-parchment text-obsidian px-6 py-3.5 text-xs font-sans font-medium uppercase tracking-[0.18em] whitespace-nowrap shrink-0 hover:bg-obsidian hover:text-parchment"
               >
                 <span>Start a Conversation</span>
                 <span aria-hidden="true">↗</span>
@@ -58,7 +63,7 @@ export function ContactCTA({ onNavigate }: ContactCTAProps) {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -20,20 +20,20 @@ export interface SubmitContactOptions {
 }
 
 /**
- * Submits a validated contact inquiry only when a real backend endpoint is configured.
- * Refuses to simulate success when no email transport or Resend endpoint exists.
+ * Submits a validated contact inquiry to the server /api/contact Resend proxy.
+ * Refuses to simulate success when RESEND_API_KEY is not configured on the server.
  */
 export async function submitContactInquiry(
   values: ContactFormValues,
   options: SubmitContactOptions = {}
 ): Promise<ContactSubmissionResult> {
-  const endpoint = options.endpoint?.trim() ?? '';
+  const endpoint = options.endpoint !== undefined ? options.endpoint.trim() : '/api/contact';
 
   if (!endpoint) {
     return {
       status: 'unconfigured',
       message:
-        'No email delivery service (such as Resend) is connected to this environment yet. Your inquiry has been validated and prepared below so you can copy it directly.',
+        'Resend is not connected yet because RESEND_API_KEY is missing on the server. Copy your brief below or open it directly in your email app.',
     };
   }
 
@@ -57,12 +57,22 @@ export async function submitContactInquiry(
 
     if (!response.ok) {
       let detail = 'Unable to send your message right now.';
+      let code = '';
       try {
-        const payload = (await response.json()) as { error?: string };
+        const payload = (await response.json()) as { error?: string; code?: string };
         if (payload?.error) detail = payload.error;
+        if (payload?.code) code = payload.code;
       } catch {
         // Ignore JSON parse failures on non-JSON error responses.
       }
+
+      if (response.status === 503 || code === 'RESEND_UNCONFIGURED') {
+        return {
+          status: 'unconfigured',
+          message: detail,
+        };
+      }
+
       return {
         status: 'error',
         message: detail,
@@ -72,13 +82,13 @@ export async function submitContactInquiry(
     return {
       status: 'sent',
       message:
-        'Thank you. Your note has been delivered to Orpheus Studios. We respond to thoughtful inquiries within two business days.',
+        'Thank you. Your brief has been sent directly to Orpheus Studios (orpheusstidos@gmail.com). We respond personally within two business days.',
     };
   } catch {
     return {
       status: 'error',
       message:
-        'A network error prevented delivery. Please check your connection or copy your inquiry summary below.',
+        'A network error prevented delivery. Please check your connection or copy your brief below.',
     };
   }
 }

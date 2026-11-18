@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { STUDIO_CONFIG } from '../data/studioData';
 
-export type RouteId = 'home' | 'services' | 'about' | 'contact';
+export type RouteId = 'home' | 'services' | 'about' | 'studio' | 'contact';
 
 export interface RouteMeta {
   id: RouteId;
@@ -15,26 +14,36 @@ export const ROUTES: Record<RouteId, RouteMeta> = {
     id: 'home',
     path: '/',
     title: 'Orpheus Studios — Make Things That Move People',
-    description: `Orpheus Studios is an independent creative studio based at ${STUDIO_CONFIG.location}, working internationally across film, brand strategy, creative direction and design.`,
+    description:
+      'Shape stories, brand identities, and films with Orpheus Studios—an independent creative studio at NSTP, Islamabad working globally.',
   },
   services: {
     id: 'services',
     path: '/services',
-    title: 'Services — Orpheus Studios',
+    title: 'Services & Practice — Orpheus Studios',
     description:
-      'Brand Strategy, Creative Direction, Film & Production, Brand Identity & Design, and Digital Experiences at Orpheus Studios.',
+      'Explore brand strategy, creative direction, filmmaking, visual identity, and digital experiences under one roof with Orpheus Studios.',
   },
   about: {
     id: 'about',
     path: '/about',
-    title: 'About — Orpheus Studios',
-    description: `Independent creative studio based at ${STUDIO_CONFIG.location}. Named for a storyteller, built for the stories ahead.`,
+    title: 'About the Studio — Orpheus Studios',
+    description:
+      'Discover the philosophy behind Orpheus Studios in Islamabad—uniting South Asian heritage, global cinema craft, and strategic restraint.',
+  },
+  studio: {
+    id: 'studio',
+    path: '/studio',
+    title: 'Studio 3D Atelier — Orpheus Studios',
+    description:
+      'Inspect The Lyre & Aperture—an interactive 3D spatial study with real-time lighting and materials crafted by Orpheus Studios.',
   },
   contact: {
     id: 'contact',
     path: '/contact',
-    title: 'Contact — Orpheus Studios',
-    description: `Start a conversation with Orpheus Studios (${STUDIO_CONFIG.email}) — based at ${STUDIO_CONFIG.location}, working internationally.`,
+    title: 'Contact & Project Briefs — Orpheus Studios',
+    description:
+      'Share your film, identity, or strategy project brief with Orpheus Studios in Islamabad. Direct studio reply within two business days.',
   },
 };
 
@@ -61,6 +70,8 @@ export function matchRoute(pathname: string): RouteMeta {
       return ROUTES.services;
     case '/about':
       return ROUTES.about;
+    case '/studio':
+      return ROUTES.studio;
     case '/contact':
       return ROUTES.contact;
     case '/':
@@ -118,14 +129,6 @@ export function useRouter() {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
-
-  useEffect(() => {
-    document.title = route.title;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', route.description);
-    }
-  }, [route.description, route.title]);
 
   return { route, pathname, search, navigate };
 }

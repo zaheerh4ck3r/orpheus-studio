@@ -26,7 +26,7 @@ export function LyreMark({ className = 'w-8 h-9' }: LyreMarkProps) {
 /**
  * Exact 4-point star emblem extracted from the studio's master SVG.
  */
-export function StarMark({ className = 'w-4 h-4 text-vermilion' }: { className?: string }) {
+export function StarMark({ className = 'w-4 h-4 text-accent' }: { className?: string }) {
   return (
     <svg
       viewBox="512 819 52 54"
@@ -46,7 +46,7 @@ interface LyreWordmarkProps {
 }
 
 export function LyreWordmark({ variant = 'light', stacked = true }: LyreWordmarkProps) {
-  const textColor = variant === 'dark' ? 'text-parchment' : 'text-obsidian';
+  const textColor = variant === 'dark' ? 'text-ink-contrast' : 'text-ink';
 
   return (
     <span className={`inline-flex items-center gap-3 ${textColor}`}>

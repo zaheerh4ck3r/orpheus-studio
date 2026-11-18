@@ -38,9 +38,9 @@ export const STUDIO_CONFIG = {
   shortLocation: 'Islamabad, Pakistan',
   availability: 'Working internationally',
   email: 'orpheusstidos@gmail.com',
-  instagram: '@orpheusstudios',
-  instagramUrl: 'https://www.instagram.com/orpheusstudios',
-  contactEndpoint: import.meta.env?.VITE_CONTACT_ENDPOINT ?? '',
+  instagram: '@orpheusstudioss',
+  instagramUrl: 'https://www.instagram.com/orpheusstudioss',
+  contactEndpoint: import.meta.env?.VITE_CONTACT_ENDPOINT || '/api/contact',
 } as const;
 
 export const STUDIO_SERVICES: StudioService[] = [
